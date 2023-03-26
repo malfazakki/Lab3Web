@@ -27,6 +27,8 @@ $result = mysqli_query($conn, $sql);
 <body>
     <div class="container">
         <h1>Data Barang</h1>
+        <a href="tambah.php">Tambah Barang</a>
+        <br><br>
         <div class="main">
             <table  >
                 <tr>
@@ -47,7 +49,10 @@ $result = mysqli_query($conn, $sql);
                         <td><?= $row["harga_beli"]; ?></td>
                         <td><?= $row["harga_jual"]; ?></td>
                         <td><?= $row["stok"]; ?></td>
-                        <td><?= $row["id_barang"]; ?></td>
+                        <td>
+                            <a href="ubah.php?id_barang=<?= $row["id_barang"]; ?> " width="50">Ubah | </a>
+                            <a href="hapus.php?id_barang=<?= $row["id_barang"]; ?>" onclick="return confirm('yakin ingin menghapus data?')";>Hapus</a>
+                        </td>
                         </tr>
                     <?php endwhile; else: ?>
                         <tr>

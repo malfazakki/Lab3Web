@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 include_once "koneksi.php";
 
 if(isset($_POST["submit"]) ) {
-    $id = $_POST['id'];
+    $id = $_POST['id_barang'];
     $nama = $_POST['nama'];
     $kategori = $_POST['kategori'];
     $harga_jual = $_POST['harga_jual'];
@@ -33,7 +33,7 @@ if(isset($_POST["submit"]) ) {
     }
 }
 
-$id = $_GET['id'];
+$id = $_GET["id_barang"];
 $sql = "SELECT * FROM data_barang WHERE id_barang = '{$id}'";
 $result = mysqli_query($conn, $sql);
 if (!$result) die('Error: Data tidak tersedia');
@@ -56,7 +56,7 @@ function is_select($var, $val) {
         <h1>Ubah Barang</h1>
         <div class="main">
             <form action="ubah.php" method="post" enctype="multipart/form-data">
-            <div class="input">
+           <div class="input">
                 <label>Nama Barang</label>
                 <input type="text" name="nama" value="<?php echo $data['nama'];?>" />
             </div>
@@ -85,12 +85,12 @@ function is_select($var, $val) {
                 <input type="text" name="stok" value="<?php echo
                 $data['stok'];?>" />
             </div>
-            <div class="input">
+            <!-- <div class="input">
                 <label>File Gambar</label>
                 <input type="file" name="file_gambar" />
-            </div>
+            </div> -->
             <div class="submit">
-                <input type="hidden" name="id" value="<?php echo
+                <input type="hidden" name="id_barang" value="<?php echo
                 $data['id_barang'];?>" />
                 <input type="submit" name="submit" value="Simpan" />
             </div>
